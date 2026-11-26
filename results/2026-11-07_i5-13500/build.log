@@ -1,0 +1,11 @@
+g++ -O2 -march=native -std=c++17 -I/home/student/miniconda3/envs/ecc/include bench.cpp -o bench -L/home/student/miniconda3/envs/ecc/lib -Wl,-rpath,/home/student/miniconda3/envs/ecc/lib -lntl -lgf2x -lgmp -pthread
+	linux-vdso.so.1 (0x00007ffc125db000)
+	libntl.so.45 => /home/student/miniconda3/envs/ecc/lib/libntl.so.45 (0x00007eff6de00000)
+	libgf2x.so.3 => /home/student/miniconda3/envs/ecc/lib/libgf2x.so.3 (0x00007eff6e08c000)
+	libgmp.so.10 => /home/student/miniconda3/envs/ecc/lib/libgmp.so.10 (0x00007eff6dd57000)
+	libstdc++.so.6 => /home/student/miniconda3/envs/ecc/lib/libstdc++.so.6 (0x00007eff6da00000)
+	libm.so.6 => /lib/x86_64-linux-gnu/libm.so.6 (0x00007eff6d919000)
+	libgcc_s.so.1 => /home/student/miniconda3/envs/ecc/lib/libgcc_s.so.1 (0x00007eff6dd29000)
+	libc.so.6 => /lib/x86_64-linux-gnu/libc.so.6 (0x00007eff6d600000)
+	libdl.so.2 => /lib/x86_64-linux-gnu/libdl.so.2 (0x00007eff6dd24000)
+	/lib64/ld-linux-x86-64.so.2 (0x00007eff6e0b4000)

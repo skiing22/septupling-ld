@@ -1,0 +1,128 @@
+Verification suite for: On the Minimality of Chain-Based Septupling
+Python: Python 3.13.18
+
+========================================================================
+  1. Correctness: Checks A-C, exhaustive (Section 4.4; slowest, ~5-10 min)
+========================================================================
+Correctness checks (exhaustive over small curves)
+
+  A  add-2005-dl                           :   48792 cases, 0 failures
+  A  dbl-2005-dl                           :   48888 cases, 0 failures
+  A  dbl-2005-l                            :   48888 cases, 0 failures
+  A  fixed-a2 doubling                     :   24576 cases, 0 failures
+  A  madd Lopez-Dahab (comparator)         :   16264 cases, 0 failures
+  A  madd-2005-dl                          :   16264 cases, 0 failures
+  A  mdbl-2005-dl                          :   16296 cases, 0 failures
+  A  tripling of Yasin et al. (comparator) :   16264 cases, 0 failures
+  B  chain of Eq. (7) = 7P                 :   16210 cases, 0 failures
+  C  chain of Eq. (6) = 7P                 :   16234 cases, 0 failures
+
+  inputs outside the hypotheses of B (7P, 8P or 9P = O)        : 86
+  inputs outside the valid set of C (2P, 3P, 5P, 6P or 7P = O) : 62
+
+TOTAL FAILURES: 0
+
+
+========================================================================
+  2. Operation counts: every block and both chains (Appendix A, Table 7, Eq. 8)
+========================================================================
+Block costs, generic curve  (M, S, D, A)
+  mdbl-2005-dl       (1, 3, 2, 4)
+  dbl-2005-dl        (3, 5, 2, 4)
+  dbl-2005-l         (4, 4, 1, 5)
+  dbl fixed-a2       (3, 5, 1, 3)
+  madd-2005-dl       (8, 5, 1, 9)
+  add-2005-dl        (13, 4, 0, 9)
+  madd LD 9M+4S      (9, 4, 1, 8)
+  Yasin-Muda 3P      (10, 7, 2, 13)
+
+Frozen K-163 blocks (D = 0) and chain totals
+  1-2-4-8-7 : (15, 18, 0, 20)  = 21.99 M
+  1-2-3-6-7 : (20, 18, 0, 25)  = 27.13 M
+  margin    : (5, 0, 0, 5)  = 5.15 M
+
+Closed form (3n+6)M + (5n+3)S + (3n+10+eps)A, K-163
+  verified for n = 1..6, both signs
+
+
+========================================================================
+  3. Minimality: exhaustive chain enumeration (Section 5.1, Table 10)
+========================================================================
+LD coordinates, K-163 (Table 5)
+  --- septupling, exhaustive to length 5 ---
+  N=  7  chains<=len5:   102  min length: 4  minimisers: 1
+         1 -> 2 -> 4 -> 8 -> 7   15M + 18S + 20A   = 21.988 M
+  --- 2^n - 1 ---
+  N=  3  chains<=len4:    16  min length: 2  minimisers: 1
+         1 -> 2 -> 3   9M + 8S + 13A   = 12.225 M
+  N=  7  chains<=len5:   102  min length: 4  minimisers: 1
+         1 -> 2 -> 4 -> 8 -> 7   15M + 18S + 20A   = 21.988 M
+  N= 15  chains<=len6:   266  min length: 5  minimisers: 1
+         1 -> 2 -> 4 -> 8 -> 16 -> 15   18M + 23S + 23A   = 26.855 M
+  N= 31  chains<=len7:   257  min length: 6  minimisers: 1
+         1 -> 2 -> 4 -> 8 -> 16 -> 32 -> 31   21M + 28S + 26A   = 31.722 M
+  --- 2^n + 1 ---
+  N=  3  chains<=len3:     4  min length: 2  minimisers: 1
+         1 -> 2 -> 3   9M + 8S + 13A   = 12.225 M
+  N=  5  chains<=len4:    17  min length: 3  minimisers: 1
+         1 -> 2 -> 4 -> 5   12M + 13S + 16A   = 17.092 M
+  N=  9  chains<=len5:    65  min length: 4  minimisers: 1
+         1 -> 2 -> 4 -> 8 -> 9   15M + 18S + 19A   = 21.959 M
+  N= 17  chains<=len6:   138  min length: 5  minimisers: 1
+         1 -> 2 -> 4 -> 8 -> 16 -> 17   18M + 23S + 22A   = 26.826 M
+  N= 33  chains<=len7:   228  min length: 6  minimisers: 1
+         1 -> 2 -> 4 -> 8 -> 16 -> 32 -> 33   21M + 28S + 25A   = 31.693 M
+
+
+
+========================================================================
+  4. Fusion analysis (Section 5.2)
+========================================================================
+K-163 (a2 = a6 = 1)
+   cumulative after 2P: (1, 3, 0, 4)
+   cumulative after 4P: (4, 7, 0, 7)
+   cumulative after 8P: (7, 12, 0, 10)
+   cumulative after 7P: (15, 17, 0, 20)
+   unfused chain            : (15, 18, 0, 20)
+   fused (structural CSE)   : (15, 17, 0, 20)
+   plus C = X1+(X1+Y1) = Y1 : one further addition, by inspection
+   saving                   : (0, 1, 0, 0) and 1 more A
+
+a2 = 1, a6 symbolic
+   cumulative after 2P: (1, 3, 1, 4)
+   cumulative after 4P: (4, 7, 2, 7)
+   cumulative after 8P: (7, 12, 3, 10)
+   cumulative after 7P: (15, 17, 3, 20)
+   unfused chain            : (15, 18, 3, 20)
+   fused (structural CSE)   : (15, 17, 3, 20)
+   plus C = X1+(X1+Y1) = Y1 : one further addition, by inspection
+   saving                   : (0, 1, 0, 0) and 1 more A
+
+
+
+========================================================================
+  5. Design-space search over published blocks (Section 5.2)
+========================================================================
+Standalone block costs on K-163  (M, S, D, A)
+   mdbl dl: (1, 3, 0, 4)     dbl dl: (3, 5, 0, 4)
+   mdbl l7: (3, 3, 0, 5)     dbl l7: (4, 4, 0, 5)
+   mdbl a2: (2, 3, 0, 3)     dbl a2: (3, 5, 0, 3)
+   madd AD: (8, 5, 0, 9)
+   madd LDm: (9, 4, 0, 8)
+
+rank  steps                     unfused            fused   M-eq
+   1  dl/a2/a2/AD       15M 18S 20A    15M 17S 20A   21.632
+   2  dl/a2/dl/AD       15M 18S 21A    15M 17S 21A   21.661
+   3  dl/dl/a2/AD       15M 18S 21A    15M 17S 21A   21.661
+   4  dl/dl/dl/AD       15M 18S 22A    15M 17S 22A   21.690
+   5  dl/a2/a2/LDm      16M 17S 19A    16M 16S 19A   22.247
+   6  dl/a2/dl/LDm      16M 17S 20A    16M 16S 20A   22.276
+   7  dl/dl/a2/LDm      16M 17S 20A    16M 16S 20A   22.276
+   8  dl/dl/dl/LDm      16M 17S 21A    16M 16S 21A   22.305
+   ... 54 combinations in total
+   minimum multiplication count over all combinations: 15
+
+
+========================================================================
+  ALL SCRIPTS COMPLETED
+========================================================================

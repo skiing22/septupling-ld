@@ -1,0 +1,79 @@
+== Part 0: build ==
+RESULT build compiler=gcc-16.2.0
+RESULT build ntl=11.6.0
+RESULT build gf2x=yes
+RESULT build pclmul=yes avx2=yes
+RESULT protocol field_iters=1048576 block_iters=65536 chain_iters=16384 warmups=3 reps=15 tests=200
+RESULT build tsc_ghz=2.496
+
+== K-163 ==
+RESULT check curve=K-163 checks=3400 failures_so_far=0
+RESULT field curve=K-163 item=M mode=latency median=231.74 min=231.57 max=233.11
+RESULT field curve=K-163 item=S mode=latency median=82.58 min=82.24 max=83.53
+RESULT field curve=K-163 item=A mode=latency median=6.85 min=6.82 max=6.90
+RESULT field curve=K-163 item=I mode=latency median=4811.53 min=4795.91 max=4821.62
+RESULT field curve=K-163 item=M mode=throughput median=231.67 min=231.47 max=231.97
+RESULT field curve=K-163 item=S mode=throughput median=81.91 min=81.75 max=82.24
+RESULT field curve=K-163 item=A mode=throughput median=11.20 min=11.10 max=11.25
+RESULT block curve=K-163 item=mdbl-2005-dl mode=latency median=605.92 min=604.41 max=609.40
+RESULT block curve=K-163 item=fixed-a2-Z1 mode=latency median=803.61 min=801.50 max=807.10
+RESULT block curve=K-163 item=fixed-a2 mode=latency median=1333.78 min=1330.91 max=1340.24
+RESULT block curve=K-163 item=dbl-2005-dl mode=latency median=1365.04 min=1357.53 max=1388.97
+RESULT block curve=K-163 item=dbl-2005-l mode=latency median=1461.04 min=1458.50 max=1483.01
+RESULT block curve=K-163 item=madd-2005-dl mode=latency median=2577.21 min=2571.28 max=2598.06
+RESULT block curve=K-163 item=add-2005-dl mode=latency median=3702.68 min=3698.52 max=3724.87
+RESULT resets curve=K-163 count=0
+RESULT chain curve=K-163 item=Eq7-ours mode=repeated median=5901.10 min=5879.37 max=5920.19
+RESULT chain curve=K-163 item=Eq6-best mode=repeated median=7049.48 min=7034.67 max=7065.76
+RESULT chain curve=K-163 item=Eq6-blocks-of-1 mode=repeated median=7954.50 min=7936.89 max=7961.75
+RESULT chain curve=K-163 item=pow2m1-n1 mode=repeated median=3005.19 min=3001.30 max=3014.66
+RESULT chain curve=K-163 item=pow2m1-n2 mode=repeated median=4564.51 min=4551.86 max=4669.79
+RESULT chain curve=K-163 item=pow2m1-n3 mode=repeated median=5944.50 min=5928.48 max=5961.37
+RESULT chain curve=K-163 item=pow2m1-n4 mode=repeated median=7227.82 min=7220.32 max=7285.79
+RESULT chain curve=K-163 item=pow2m1-n5 mode=repeated median=8616.21 min=8597.50 max=8642.07
+RESULT chain curve=K-163 item=pow2m1-n6 mode=repeated median=9928.49 min=9914.22 max=9956.65
+
+== B-233 ==
+RESULT check curve=B-233 checks=3400 failures_so_far=0
+RESULT field curve=B-233 item=M mode=latency median=280.60 min=280.52 max=280.82
+RESULT field curve=B-233 item=S mode=latency median=92.66 min=92.59 max=93.02
+RESULT field curve=B-233 item=A mode=latency median=7.30 min=7.30 max=7.31
+RESULT field curve=B-233 item=I mode=latency median=7220.79 min=7207.95 max=7245.80
+RESULT field curve=B-233 item=M mode=throughput median=281.21 min=281.08 max=281.79
+RESULT field curve=B-233 item=S mode=throughput median=91.99 min=91.94 max=93.19
+RESULT field curve=B-233 item=A mode=throughput median=9.13 min=9.02 max=9.17
+RESULT block curve=B-233 item=mdbl-2005-dl mode=latency median=946.83 min=944.90 max=968.20
+RESULT block curve=B-233 item=fixed-a2-Z1 mode=latency median=947.66 min=942.06 max=952.16
+RESULT block curve=B-233 item=fixed-a2 mode=latency median=1796.17 min=1790.99 max=1823.46
+RESULT block curve=B-233 item=dbl-2005-dl mode=latency median=1798.53 min=1795.11 max=1803.13
+RESULT block curve=B-233 item=dbl-2005-l mode=latency median=1658.34 min=1656.14 max=1672.36
+RESULT block curve=B-233 item=madd-2005-dl mode=latency median=2994.49 min=2991.11 max=3005.57
+RESULT block curve=B-233 item=add-2005-dl mode=latency median=4344.69 min=4340.62 max=4350.58
+RESULT resets curve=B-233 count=0
+RESULT chain curve=B-233 item=Eq7-ours mode=repeated median=7369.35 min=7358.94 max=7382.64
+RESULT chain curve=B-233 item=Eq6-best mode=repeated median=8628.74 min=8618.37 max=8641.47
+RESULT chain curve=B-233 item=Eq6-blocks-of-1 mode=repeated median=9227.20 min=9219.38 max=9242.44
+
+== B-283 ==
+RESULT check curve=B-283 checks=3400 failures_so_far=0
+RESULT field curve=B-283 item=M mode=latency median=481.29 min=480.98 max=483.38
+RESULT field curve=B-283 item=S mode=latency median=117.36 min=116.82 max=117.73
+RESULT field curve=B-283 item=A mode=latency median=7.83 min=7.82 max=8.85
+RESULT field curve=B-283 item=I mode=latency median=9206.15 min=9177.71 max=9265.57
+RESULT field curve=B-283 item=M mode=throughput median=481.11 min=480.96 max=484.68
+RESULT field curve=B-283 item=S mode=throughput median=116.71 min=116.58 max=116.92
+RESULT field curve=B-283 item=A mode=throughput median=9.13 min=9.05 max=9.18
+RESULT block curve=B-283 item=mdbl-2005-dl mode=latency median=1405.34 min=1402.50 max=1408.01
+RESULT block curve=B-283 item=fixed-a2-Z1 mode=latency median=1395.12 min=1392.80 max=1399.65
+RESULT block curve=B-283 item=fixed-a2 mode=latency median=2697.63 min=2690.41 max=2793.53
+RESULT block curve=B-283 item=dbl-2005-dl mode=latency median=2709.28 min=2705.50 max=2715.38
+RESULT block curve=B-283 item=dbl-2005-l mode=latency median=2540.98 min=2539.17 max=2547.07
+RESULT block curve=B-283 item=madd-2005-dl mode=latency median=4676.67 min=4675.15 max=4696.07
+RESULT block curve=B-283 item=add-2005-dl mode=latency median=7030.31 min=7019.88 max=7101.06
+RESULT resets curve=B-283 count=0
+RESULT chain curve=B-283 item=Eq7-ours mode=repeated median=11278.26 min=11264.40 max=11450.20
+RESULT chain curve=B-283 item=Eq6-best mode=repeated median=13346.34 min=13324.51 max=13480.46
+RESULT chain curve=B-283 item=Eq6-blocks-of-1 mode=repeated median=14230.21 min=14205.04 max=14345.14
+
+RESULT total_failures=0
+ALL CORRECTNESS CHECKS PASSED
